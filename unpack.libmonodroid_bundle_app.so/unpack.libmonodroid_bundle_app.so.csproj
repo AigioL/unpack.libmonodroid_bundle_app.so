@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net45</TargetFramework>
+    <SignAssembly>false</SignAssembly>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\kaitai_struct_csharp_runtime\KaitaiStream.cs">
+      <Link>kaitai_struct_csharp_runtime\KaitaiStream.cs</Link>
+    </Compile>
+    <Compile Include="..\kaitai_struct_csharp_runtime\KaitaiStruct.cs">
+      <Link>kaitai_struct_csharp_runtime\KaitaiStruct.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>
