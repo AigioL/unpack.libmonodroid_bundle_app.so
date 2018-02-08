@@ -1,0 +1,3 @@
+[submodule "KaitaiStruct.Runtime.CSharp"]
+	path = KaitaiStruct.Runtime.CSharp
+	url = https://github.com/kaitai-io/kaitai_struct_csharp_runtime.git
