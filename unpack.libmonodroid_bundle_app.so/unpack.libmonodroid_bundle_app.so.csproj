@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net45</TargetFramework>
-    <SignAssembly>false</SignAssembly>
+    <TargetFrameworks>net35;net40</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
     <LangVersion>latest</LangVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -11,6 +11,13 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>unpack.libmonodroid_bundle_app.so.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>

@@ -42,14 +42,18 @@ namespace unpack.libmonodroid_bundle_app.so
                 // ReSharper disable PossibleNullReferenceException
                 var entryAssembly = Assembly.GetEntryAssembly();
                 var title = entryAssembly.FullName.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
-                if (!string.IsNullOrWhiteSpace(title)) Console.Title = title;
+                // ReSharper disable once AssignNullToNotNullAttribute
+                if (!title.IsNullOrWhiteSpace()) Console.Title = title;
                 var rootPath = Path.GetDirectoryName(entryAssembly.Location);
                 if (rootPath == null) throw new ArgumentNullException(nameof(rootPath));
-                var sofilepaths = Directory.GetFiles(rootPath).Where(x =>
-                    Path.GetExtension(x).Equals(GetSoFileExtension(), StringComparison.OrdinalIgnoreCase)).ToArray();
-                var sofilepath =
-                    sofilepaths.FirstOrDefault(x => Path.GetFileName(x).Equals(GetSoDefaultFileName(), StringComparison.OrdinalIgnoreCase)) ??
-                    sofilepaths.FirstOrDefault();
+                var sofilepath = args?.FirstOrDefault(x => x != null && File.Exists(x) && Path.GetExtension(x).Equals(GetSoFileExtension(), StringComparison.OrdinalIgnoreCase));
+                if (sofilepath == null)
+                {
+                    var sofilepaths = Directory.GetFiles(rootPath).Where(x => Path.GetExtension(x).Equals(GetSoFileExtension(), StringComparison.OrdinalIgnoreCase)).ToArray();
+                    sofilepath =
+                       sofilepaths.FirstOrDefault(x => Path.GetFileName(x).Equals(GetSoDefaultFileName(), StringComparison.OrdinalIgnoreCase)) ??
+                       sofilepaths.FirstOrDefault();
+                }
                 if (sofilepath == null) ReadLineAndExit("Can not find the .so file.");
                 // ReSharper disable once AssignNullToNotNullAttribute
                 var bytes = File.ReadAllBytes(sofilepath);
@@ -71,7 +75,7 @@ namespace unpack.libmonodroid_bundle_app.so
                     addr += i;
 
                     var name = GetString(bytes, addr);
-                    if (string.IsNullOrWhiteSpace(name))
+                    if (name.IsNullOrWhiteSpace())
                         break;
 
                     //We only care about dlls
