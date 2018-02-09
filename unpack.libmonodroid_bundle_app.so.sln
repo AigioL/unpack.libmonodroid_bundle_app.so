@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unpack.libmonodroid_bundle_app.so", "unpack.libmonodroid_bundle_app.so\unpack.libmonodroid_bundle_app.so.csproj", "{D8108B15-BDB8-48B9-AC97-B197A0A1509E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "unpack.libmonodroid_bundle_app.so", "unpack.libmonodroid_bundle_app.so\unpack.libmonodroid_bundle_app.so.csproj", "{D8108B15-BDB8-48B9-AC97-B197A0A1509E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{222A2ECF-F77B-42D8-99A3-23AB0F430C64}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

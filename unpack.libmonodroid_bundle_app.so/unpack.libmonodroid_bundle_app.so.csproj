@@ -20,6 +20,13 @@
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+    <AssemblyName>unpack.libmonodroid_bundle_app.so.net35</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net40'">
+    <AssemblyName>unpack.libmonodroid_bundle_app.so.net40</AssemblyName>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\kaitai_struct_csharp_runtime\KaitaiStream.cs">
       <Link>kaitai_struct_csharp_runtime\KaitaiStream.cs</Link>
